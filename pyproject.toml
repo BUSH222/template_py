@@ -1,0 +1,75 @@
+[project]
+name = "template"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.2",
+    "ruff>=0.16.5",
+    "ty>=0.0.78",
+]
+
+
+[tool.ruff]
+target-version = "py314"
+line-length = 119
+exclude = [
+    ".venv",
+    "__pycache__",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # Pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "C4",  # flake8-comprehensions
+    "RUF", # Ruff-specific rules
+    "TCH", # flake8-type-checking
+]
+fixable = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+
+[tool.ty]
+target-version = "py314"
+
+include = ["."]
+exclude = [
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "tests",
+]
+
+check-untyped-defs = true
+no-implicit-optional = true
+strict-equality = true
+
+allow-untyped-defs = true
+allow-incomplete-defs = true
+allow-untyped-calls = true
+
+ignore = []
