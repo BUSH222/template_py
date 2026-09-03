@@ -1,13 +1,23 @@
 repos:
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.5
+  - repo: local
     hooks:
       - id: ruff
-        args: [--fix]
+        name: ruff lint
+        entry: uv run ruff check --fix
+        language: system
+        files: \.py$
+        pass_filenames: true
+        
       - id: ruff-format
-  
-  - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.1.0
-    hooks:
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        files: \.py$
+        pass_filenames: true
+        
       - id: ty
-        args: [--check]
+        name: ty type checker
+        entry: uv run ty check
+        language: system
+        files: \.py$
+        pass_filenames: false

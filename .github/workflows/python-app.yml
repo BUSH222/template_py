@@ -23,7 +23,6 @@ jobs:
     name: Lint & Type Check
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v5

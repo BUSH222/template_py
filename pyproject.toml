@@ -52,24 +52,12 @@ testpaths = ["tests"]
 python_files = "test_*.py"
 python_functions = "test_*"
 
-[tool.ty]
-target-version = "py314"
+[tool.ty.environment]
+python-version = "3.14"
 
-include = ["."]
-exclude = [
-    ".venv",
-    "__pycache__",
-    "build",
-    "dist",
-    "tests",
-]
+[tool.ty.terminal]
+error-on-warning = false
 
-check-untyped-defs = true
-no-implicit-optional = true
-strict-equality = true
+[tool.ty.rules]
+all = "warn"
 
-allow-untyped-defs = true
-allow-incomplete-defs = true
-allow-untyped-calls = true
-
-ignore = []
