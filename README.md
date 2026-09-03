@@ -5,6 +5,7 @@ Includes:
 - Licence
 - README
 - main.py
-- github actions - lint with flake8
-- flake8 config
+- github actions
 - .gitignore
+
+Uses uv+ruff+ty. Run sh setup.sh to set up pre-commit hooks.
